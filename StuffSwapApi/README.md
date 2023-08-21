@@ -21,3 +21,6 @@ appsettings.json
     "DefaultConnection": "Server=localhost;Port=3306;database=stuff_swap_api;uid=root;pwd=epicodus"
   }
 }
+
+further exploration
+add token to swagger
