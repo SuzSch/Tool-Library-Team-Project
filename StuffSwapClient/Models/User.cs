@@ -18,6 +18,8 @@ namespace StuffSwapClient.Models
         public string Email { get; set; }
         public string UserPhoto { get; set;}
         public string Address { get; set;}
+        //public int ToolId {get; set;}
+        public List<Tool> ownedTools {get; set;}
     
 
         public static List<User> GetUsers(string model){
