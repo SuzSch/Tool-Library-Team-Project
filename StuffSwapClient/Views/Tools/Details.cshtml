@@ -1,0 +1,16 @@
+@{
+  ViewData["Title"] = $"Details for {@Model.Name}";
+}
+
+<h1>This tool: @Model.ToolName</h1>
+
+<p>@Model.ToolPhoto</p>
+<p>Category @Model.ToolCategory</p>
+<p>Description: @Model.ToolDescription</p>
+<p>Checked-out? @Model.ToolStatus</p>
+<p>Due Date: @Model.ReturnDate</p>
+
+
+<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.ToolId })</p>
+<p>@Html.ActionLink("Delete this tool", "Delete", new { id = @Model.ToolId })</p>
+<p>@Html.ActionLink("Return to all tools", "Index")</p>
