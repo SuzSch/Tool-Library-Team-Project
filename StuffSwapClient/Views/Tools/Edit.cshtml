@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Edit</h2>
+
+<h4>Edit this tool: @Html.DisplayFor(model => model.ToolDescription)</h4>
+
+@if (!ViewData.ModelState.IsValid)
+{
+  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:")
+
+}
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ToolId)
+
+  @Html.LabelFor(model => model.ToolDescription)
+  @Html.EditorFor(model => model.ToolDescription)
+
+    @Html.LabelFor(model => model.ToolStatus)
+  @Html.EditorFor(model => model.ToolStatus)
+
+    @Html.LabelFor(model => model.ToolPhoto)
+  @Html.EditorFor(model => model.ToolPhoto)
+
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to home page", "Index", "Home")</p>
