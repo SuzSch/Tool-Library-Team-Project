@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model StuffSwapClient.Models.Tool
+
+<h1>Delete Tool</h1>
+<p>Are you sure you want to delete the following treat?</p>
+<div>
+  <h4>Tool details:</h4>
+  <div>
+    <h5>Description: @Html.DisplayFor(model => model.ToolDescription)</h5>
+  </div>
+  <form asp-action="Delete" asp-route-id="@Model.ToolId" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>

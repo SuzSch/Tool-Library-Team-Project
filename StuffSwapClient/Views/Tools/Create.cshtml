@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Add a new tool</h1>
+
+@model StuffSwapClient.Models.Tool
+
+@if (!ViewData.ModelState.IsValid)
+{
+  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:")
+}
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.ToolDescription)
+  @Html.TextBoxFor(model => model.ToolDescription)
+  <br>
+
+  <input type="submit" value="Add tool type">
+}
+<hr>
+<p>@Html.ActionLink("Back to Main Page", "Index", "Home")</p>
