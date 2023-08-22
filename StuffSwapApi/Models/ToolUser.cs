@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StuffSwapApi.Models
 {
+  // ToolUser is the tool borrower, the tool owner is in the Tool model
   public class ToolUser
   {
     public int ToolUserId { get; set; }
