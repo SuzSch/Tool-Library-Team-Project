@@ -6,6 +6,7 @@ public class StuffSwapApiContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Tool> Tools { get; set; }
+    public DbSet<ToolUser> ToolUsers { get; set; }
 
     public StuffSwapApiContext(DbContextOptions<StuffSwapApiContext> options) : base(options) { }
 
