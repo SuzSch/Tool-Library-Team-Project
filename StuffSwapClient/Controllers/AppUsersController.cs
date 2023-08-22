@@ -5,25 +5,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StuffSwapClient.Controllers
 {
-    public class AppUsersControllers : Controller{
+    public class AppUsersController : Controller{
         public IActionResult Index(){
             List<AppUser> appUsers = AppUser.GetUsers("appUsers");
             return View(appUsers);
         }
-
+        public ActionResult Login(){
+            return View();
+        }
+ 
         public IActionResult Details(int id)
         {
             AppUser appUser = AppUser.GetDetails(id, "appUsers");
             return View(appUser);
         }
 
-        public ActionResult Create()
+        //Register method
+        public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(AppUser appUser)
+        public ActionResult Register(AppUser appUser)
         {
             AppUser.Post(appUser, "appUsers");
             return RedirectToAction("Index");
