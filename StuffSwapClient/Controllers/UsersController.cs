@@ -1,5 +1,13 @@
-namespace StuffSwapClient.Controllers{
-    public class UsersController: Controller{
+using Microsoft.AspNetCore.Mvc;
+using StuffSwapClient.Models;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+
+
+namespace StuffSwapClient.Controllers
+{
+    public class UsersControllers : Controller{
         public IActionResult Index(){
             List<User> users = User.GetUsers("users");
             return View(users);
@@ -33,7 +41,7 @@ namespace StuffSwapClient.Controllers{
         public ActionResult Edit(User user)
         {
             User.Put(user, "users");
-            return RedirectToAction("Details", new { id = user.Id });
+            return RedirectToAction("Details", new { id = user.UserId });
         }
 
         public ActionResult Delete(int id)

@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using StuffSwapClient.Models;
 
-namespace StuffSwapClient.Controllers;
+namespace StuffSwapClient.Controllers
+{
 
 public class HomeController : Controller
 {
@@ -18,4 +19,5 @@ public class HomeController : Controller
         return View();
     }
 
+}
 }
