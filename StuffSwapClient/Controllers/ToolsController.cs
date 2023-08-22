@@ -1,5 +1,14 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using StuffSwapClient.Models;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
+
 
 namespace StuffSwapClient.Controllers;
 
@@ -28,7 +37,7 @@ public class ToolsController : Controller
     }
 
     public ActionResult Edit(int id){
-        Tool tool = Tool.GetDetails(id);
+        Tool tool = Tool.GetDetails(id, "tools");
         return View(tool);
     }
 
@@ -39,7 +48,7 @@ public class ToolsController : Controller
     }
 
     public ActionResult Delete(int id){
-        Tool tool = Tool.GetDetails(id);
+        Tool tool = Tool.GetDetails(id, "tools");
         return View(tool);
 
     }

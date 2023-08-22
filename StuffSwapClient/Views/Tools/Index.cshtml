@@ -1,11 +1,14 @@
-@{
+@* @{
     ViewData["Title"] = "Tools";
 }
-
+@model StuffSwapClient.Models.Tool;
+ @using StuffSwapClient.Models;
 <h1>All tools registered</h1>
-
-@foreach(Tool tool in Models.Tool)
+<ol>
+@foreach(Tool tool in Model)
 {   
-    <ul></ul>
-        <li>@Tool.ToolName </li>
+    <ul>
+        <li>@tool.ToolName </li>
+    </ul>
 }
+</ol> *@
