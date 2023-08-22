@@ -16,9 +16,9 @@
   {
     <h3> * Click on the user's name to see their profile *</h3>
     
-      @foreach (AppUser appUser in ViewBag.Users)
+      @foreach (AppUser appUser in ViewBag.AppUsers)
       {
-      <p>@Html.ActionLink($"{appUser.UserName}", "Details", "Users", new { id = appUser.UserId }, null)</p>
+      <p>@Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.UserId }, null)</p>
       }
     
   }

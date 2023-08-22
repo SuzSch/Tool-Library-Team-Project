@@ -16,10 +16,10 @@ namespace StuffSwapClient.Models
         public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string UserPassword { get; set; }
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string UserEmail { get; set; }
         public string UserPhoto { get; set;}
         public string Address { get; set;}
         //public int ToolId {get; set;}
