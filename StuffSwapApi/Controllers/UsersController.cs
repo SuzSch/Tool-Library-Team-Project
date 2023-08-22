@@ -24,7 +24,7 @@ namespace StuffSwapApi.Controllers
             this.configuration = configuration;
         }
 
-        [HttpPost("GetToken")]
+        [HttpPost("/GetToken")]
         public IActionResult GetToken(User user)
         {
             IActionResult response = Unauthorized();
@@ -42,6 +42,8 @@ namespace StuffSwapApi.Controllers
 
                     var subject = new ClaimsIdentity(new[]
                     {
+                        //user Id claim needed to seperate users
+                        //new Claim(user.UserId)
                         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                         new Claim(JwtRegisteredClaimNames.Email, user.UserName),
                     }

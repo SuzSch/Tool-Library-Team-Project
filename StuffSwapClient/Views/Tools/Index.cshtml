@@ -2,10 +2,15 @@
     ViewData["Title"] = "Tools";
 }
 
-<h1>All tools registered</h1>
-
-@foreach(Tool tool in Models.Tool)
+ @using StuffSwapClient.Models;
+ <h1>All tools registered</h1>
+<ol>
+@foreach(Tool tool in Model)
 {   
-    <ul></ul>
-        <li>@Tool.ToolName </li>
+    <ul>
+        <li>@Html.ActionLink($"{tool.ToolName}","Details", new { id = tool.ToolId} ) </li>
+    </ul>
 }
+</ol> 
+
+<p>@Html.ActionLink("Add a Tool", "Create")</p>

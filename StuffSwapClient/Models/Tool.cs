@@ -5,23 +5,24 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace StuffSwapClient.Models{
+namespace StuffSwapClient.Models
+{
     public class Tool{
         public int ToolId { get; set; }
         public string ToolName { get; set;  }
         public string ToolDescription { get; set; }
         public string ToolCategory { get; set; }
-        public bool ToolStatus { get; set; }
+        public string ToolStatus { get; set; }
         public int UserId { get; set; }
-        public User user { get; set; }
+        public AppUser appUser { get; set; }
         public string ToolPhoto { get; set;}
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=false)]
-        public DateTime ReturnDate { get; set;}
+        // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=false)]
+        public string ReturnDate { get; set;}
         
 
         public static List<Tool> GetTools(string model){
-            var apiCallTask = ApiHelper.GetAll(model);
-            var result = apiCallTask.Result;
+             var apiCallTask = ApiHelper.GetAll(model);
+             var result = apiCallTask.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
             List<Tool> toolList = JsonConvert.DeserializeObject<List<Tool>>(jsonResponse.ToString());
@@ -36,6 +37,7 @@ namespace StuffSwapClient.Models{
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             Tool tool = JsonConvert.DeserializeObject<Tool>(jsonResponse.ToString());
+
             return tool;
         }
 

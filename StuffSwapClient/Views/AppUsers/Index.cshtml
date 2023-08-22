@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+@model StuffSwapClient.Models.AppUser;
+
+<div class="text-center">
+
+  <hr>
+  <h1>List of Current Users:</h1>
+
+  @if (ViewBag.AppUsers == null || ViewBag.AppUsers.Count == 0)
+  {
+    <h3>No user have signed up yet.</h3>
+  }
+  else
+  {
+    <h3> * Click on the user's name to see their profile *</h3>
+    
+      @foreach (AppUser appUser in ViewBag.AppUsers)
+      {
+      <p>@Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.UserId }, null)</p>
+      }
+    
+  }
