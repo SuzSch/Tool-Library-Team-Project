@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Mvc;
+using StuffSwapClient.Models;
+
 namespace StuffSwapClient.Controllers{
     public class UsersController: Controller{
         public IActionResult Index(){
