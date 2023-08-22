@@ -5,7 +5,8 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace StuffSwapClient.Models{
+namespace StuffSwapClient.Models
+{
     public class Tool{
         public int ToolId { get; set; }
         public string ToolName { get; set;  }
@@ -13,15 +14,15 @@ namespace StuffSwapClient.Models{
         public string ToolCategory { get; set; }
         public bool ToolStatus { get; set; }
         public int UserId { get; set; }
-        public User user { get; set; }
+        public AppUser appUser { get; set; }
         public string ToolPhoto { get; set;}
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=false)]
         public DateTime ReturnDate { get; set;}
         
 
         public static List<Tool> GetTools(string model){
-            var apiCallTask = ApiHelper.GetAll(model);
-            var result = apiCallTask.Result;
+            Task<string> apiCallTask = ApiHelper.GetAll(model);
+            string result = apiCallTask.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
             List<Tool> toolList = JsonConvert.DeserializeObject<List<Tool>>(jsonResponse.ToString());
@@ -31,11 +32,12 @@ namespace StuffSwapClient.Models{
 
         public static Tool GetDetails(int id, string model)
         {
-            var apiCallTask = ApiHelper.Get(id, model);
-            var result = apiCallTask.Result;
+            Task<string> apiCallTask = ApiHelper.Get(id, model);
+            string result = apiCallTask.Result;
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             Tool tool = JsonConvert.DeserializeObject<Tool>(jsonResponse.ToString());
+
             return tool;
         }
 

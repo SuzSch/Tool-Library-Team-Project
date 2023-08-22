@@ -1,15 +1,14 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
-
 @using StuffSwapClient.Models
-@model User
-
+@model AppUser
 <form class="form">
-  <div class="title">Welcome,<br><span>Log-in to continue</span></div>
+  <div class="title">Welcome,<br><span>sign up to continue</span></div>
 
-    @Html.TextBoxFor(user => user.UserName,  new { @class = "input"})
+    @Html.TextBoxFor(user => user.UserName, new { @class = "input"})
     @Html.TextBoxFor(user => user.Email,  new { @class = "input"})
+    @Html.TextBoxFor(user => user.Password,  new { @class = "input"})
     @Html.TextBoxFor(user => user.Password,  new { @class = "input"})
 
   <div class="login-with">
@@ -24,20 +23,36 @@
   <button class="button-confirm">Let`s go →</button>
 </form>
 
-  @if (!ViewData.ModelState.IsValid)
-  {
+
+
+<h1>Register for an account</h1>
+
+@if(!ViewData.ModelState.IsValid)
+{
     @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:")
-  }
-  @* @using (Html.BeginForm())
-  {
-    @Html.LabelFor(model => model.Email)
-    @Html.TextBoxFor(model => model.Email)
+}
+@* 
+@using (Html.BeginForm("Register", "Accounts", FormMethod.Post, new { @class =}))
+{
+    <div class="form-group">
+    @Html.LabelFor(user =>user.UserName)
+    @Html.TextBoxFor(user => user.UserName)
+    </div>
+    <div class="form-group">
+    @Html.LabelFor(user => user.Email)
+    @Html.TextBoxFor(user => user.Email)
+    </div>
+    <div class="form-group">
+    @Html.LabelFor(user => user.Password)
+    @Html.EditorFor(user => user.Password)
+    </div>
+    <div class="form-group">
+    @Html.LabelFor(user => user.ConfirmPassword)
+    @Html.EditorFor(user => user.ConfirmPassword)
+    </div>
+    <input type="Submit" value="Register">
+}
+<hr> *@
 
-    @Html.LabelFor(model => model.Password)
-    @Html.EditorFor(model => model.Password)
-    <input type="submit" value="Log in">
-  } *@
-
-  <hr>
-  <p>@Html.ActionLink("Register for an account", "Register")</p>
-  <p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>

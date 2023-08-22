@@ -16,7 +16,7 @@ namespace StuffSwapClient.Models{
         {
             RestClient client = new RestClient("http://localhost:5000");
             RestRequest request = new RestRequest($"api/{model}/{id}", Method.Get);
-            RestRespone response = await client.GetAsync(request);
+            RestResponse response = await client.GetAsync(request);
             return response.Content;
         }
 

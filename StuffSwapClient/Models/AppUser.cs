@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StuffSwapClient.Models
 {
-    public class User
+    public class AppUser
     {
         public int UserId { get; set; }
         [Required]
@@ -25,33 +25,33 @@ namespace StuffSwapClient.Models
         public List<Tool> ownedTools {get; set;}
     
 
-        public static List<User> GetUsers(string model){
+        public static List<AppUser> GetUsers(string model){
             var apiCallTask = ApiHelper.GetAll(model);
             var result = apiCallTask.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
 
-            List<User> userList = JsonConvert.DeserializeObject<List<User>>(jsonResponse.ToString());
-            return userList;
+            List<AppUser> appUserList = JsonConvert.DeserializeObject<List<AppUser>>(jsonResponse.ToString());
+            return appUserList;
         }
 
-        public static User GetDetails(int id, string model){
+        public static AppUser GetDetails(int id, string model){
             var apiCallTask = ApiHelper.Get(id, model);
             var result = apiCallTask.Result;
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-            User user = JsonConvert.DeserializeObject<User>(jsonResponse.ToString());
-            return user;
+            AppUser appUser = JsonConvert.DeserializeObject<AppUser>(jsonResponse.ToString());
+            return appUser;
         }
 
-        public static void Post(User user, string model){
-            string jsonUser = JsonConvert.SerializeObject(user);
+        public static void Post(AppUser appUser, string model){
+            string jsonUser = JsonConvert.SerializeObject(appUser);
             ApiHelper.Post(jsonUser, model);
         }
 
-        public static void Put(User user, string model){
-            string jsonUser = JsonConvert.SerializeObject(user);
-            ApiHelper.Put(user.UserId, jsonUser, model);
+        public static void Put(AppUser appUser, string model){
+            string jsonUser = JsonConvert.SerializeObject(appUser);
+            ApiHelper.Put(appUser.UserId, jsonUser, model);
         }
 
         public static void Delete(int id, string model){
