@@ -97,25 +97,24 @@ namespace StuffSwapApi.Controllers
     }
 
     [HttpPost("{id}/AddUserBorrower")]
-    public ActionResult AddBorrower(int id, User user)
+    public async Task<ActionResult> AddBorrower(int id, User user)
     {
-      // todo make this action async
       // todo grab the user from the cookie
       // Note the id is the tool id and User is the borrowing UserId
 
 #nullable enable
       // Checking if tool exists in this table if so the tool is borrowed already so not able to be lent
-      ToolUser? joinToolUser = _db.ToolUsers.FirstOrDefault(join => join.ToolId == id);
+      ToolUser? joinToolUser = await _db.ToolUsers.FirstOrDefaultAsync(join => join.ToolId == id);
 #nullable disable
       if (joinToolUser == null && id != 0)
       {
-        _db.ToolUsers.Add(new ToolUser() { UserId = user.UserId, ToolId = id });
+        await _db.ToolUsers.AddAsync(new ToolUser() { UserId = user.UserId, ToolId = id });
 
         //change status
-        Tool toolToUpdate = _db.Tools.FirstOrDefault(tool => tool.ToolId == id);
+        Tool toolToUpdate = await _db.Tools.FirstOrDefaultAsync(tool => tool.ToolId == id);
         toolToUpdate.ToolStatus = "Unavailable";
         // _db.Tools.Update(tool);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         return NoContent();
       }
       else
@@ -125,21 +124,21 @@ namespace StuffSwapApi.Controllers
     }
 
     [HttpDelete("{id}/RemoveUserBorrower")]
-    public ActionResult RemoveBorrower(int id, int borrowerUserId)
+    public async Task<ActionResult> RemoveBorrower(int id, int borrowerUserId)
     {
       // todo make this action async
       // todo grab the user from the cookie
       // Note the id is the tool id and User is the borrowing UserId
 #nullable enable
-      ToolUser? joinToolUser = _db.ToolUsers.FirstOrDefault(join => join.UserId == borrowerUserId && join.ToolId == id);
+      ToolUser? joinToolUser = await _db.ToolUsers.FirstOrDefaultAsync(join => join.UserId == borrowerUserId && join.ToolId == id);
 #nullable disable
       if (joinToolUser != null)
       {
         _db.ToolUsers.Remove(joinToolUser);
         //change status
-        Tool toolToUpdate = _db.Tools.FirstOrDefault(tool => tool.ToolId == id);
+        Tool toolToUpdate = await _db.Tools.FirstOrDefaultAsync(tool => tool.ToolId == id);
         toolToUpdate.ToolStatus = "Available";
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         return NoContent();
       }
       else
@@ -147,7 +146,6 @@ namespace StuffSwapApi.Controllers
         return BadRequest();
       }
     }
-
 
   }
 }
