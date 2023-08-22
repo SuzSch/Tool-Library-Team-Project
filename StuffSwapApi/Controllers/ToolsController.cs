@@ -96,6 +96,50 @@ namespace StuffSwapApi.Controllers
       return NoContent();
     }
 
+    [HttpPost("{id}/addBorrower")]
+    public ActionResult AddBorrower(int id, User user)
+    {
+      // todo make this action async
+      // todo grab the user from the cookie
+      // Note the id is the tool id and User is the borrowing UserId
+
+#nullable enable
+      // Checking if tool exists in this table if so the tool is borrowed already so not able to be lent
+      ToolUser? joinToolUser = _db.ToolUsers.FirstOrDefault(join => join.ToolId == id);
+#nullable disable
+      if (joinToolUser == null && id != 0)
+      {
+        _db.ToolUsers.Add(new ToolUser() { UserId = user.UserId, ToolId = id });
+        _db.SaveChanges();
+        return NoContent();
+      }
+      else
+      {
+        return BadRequest();
+      }
+    }
+
+    [HttpDelete("{id}/removeBorrower")]
+    public ActionResult RemoveBorrower(int id, int borrowerUserId)
+    {
+      // todo make this action async
+      // todo grab the user from the cookie
+      // Note the id is the tool id and User is the borrowing UserId
+#nullable enable
+      ToolUser? joinToolUser = _db.ToolUsers.FirstOrDefault(join => join.UserId == borrowerUserId && join.ToolId == id);
+#nullable disable
+      if (joinToolUser != null)
+      {
+        _db.ToolUsers.Remove(joinToolUser);
+        _db.SaveChanges();
+        return NoContent();
+      }
+      else
+      {
+        return BadRequest();
+      }
+    }
+
 
   }
 }
