@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 using System.ComponentModel.DataAnnotations;
 
@@ -29,6 +32,7 @@ namespace StuffSwapClient.Models
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
 
             List<User> userList = JsonConvert.DeserializeObject<List<User>>(jsonResponse.ToString());
+            return userList;
         }
 
         public static User GetDetails(int id, string model){

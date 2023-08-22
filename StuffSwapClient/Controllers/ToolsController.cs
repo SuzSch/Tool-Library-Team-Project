@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using StuffSwapClient.Models;
-
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace StuffSwapClient.Controllers;
 
-public class ToolsController : Controller
+public class ToolsController : ControllerBase
 {
     public IActionResult Index()
     {

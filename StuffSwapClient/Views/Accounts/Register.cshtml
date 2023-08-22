@@ -5,10 +5,10 @@
 <form class="form">
   <div class="title">Welcome,<br><span>sign up to continue</span></div>
 
-    @Html.TextBoxFor(user => user.UserName, new { placeholder = "user name"}, new { @class = "input"})
-    @Html.TextBoxFor(user => user.UserEmail, new { placeholder = "email"}, new { @class = "input"})
-    @Html.TextBoxFor(user => user.UserPassword, new { placeholder = "Password"}, new { @class = "input"})
-    @Html.TextBoxFor(user => user.UserPassword, new { placeholder = "Confirm password"}, new { @class = "input"})
+    @Html.TextBoxFor(user => user.UserName, new { @class = "input"})
+    @Html.TextBoxFor(user => user.Email,  new { @class = "input"})
+    @Html.TextBoxFor(user => user.Password,  new { @class = "input"})
+    @Html.TextBoxFor(user => user.Password,  new { @class = "input"})
 
   <div class="login-with">
     <div class="button-log"></div>
@@ -23,7 +23,7 @@
 </form>
 
 @using StuffSwapClient.Models
-@model USerModel
+@model User
 
 <h1>Register for an account</h1>
 

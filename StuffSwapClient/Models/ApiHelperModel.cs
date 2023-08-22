@@ -15,7 +15,7 @@ namespace StuffSwapClient.Models{
         public static async Task<string> Get(int id, string model)
         {
             RestClient client = new RestClient("http://localhost:5000");
-            REstRequest request = new RestRequest($"api/{model}/{id}", Method.Get);
+            RestRequest request = new RestRequest($"api/{model}/{id}", Method.Get);
             RestRespone response = await client.GetAsync(request);
             return response.Content;
         }
@@ -31,7 +31,7 @@ namespace StuffSwapClient.Models{
         public static async void Put(int id, string newTool, string model){
             RestClient client = new RestClient("http://localhost:5000/");
             RestRequest request = new RestRequest($"api/{model}/{id}", Method.Put);
-            request.AddHeader("Content-Type", "application/json")
+            request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(newTool);
             await client.PutAsync(request);
         }
