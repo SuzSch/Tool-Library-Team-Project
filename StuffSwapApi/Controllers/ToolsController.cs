@@ -96,7 +96,7 @@ namespace StuffSwapApi.Controllers
       return NoContent();
     }
 
-    [HttpPost("{id}/addBorrower")]
+    [HttpPost("{id}/AddUserBorrower")]
     public ActionResult AddBorrower(int id, User user)
     {
       // todo make this action async
@@ -119,7 +119,7 @@ namespace StuffSwapApi.Controllers
       }
     }
 
-    [HttpDelete("{id}/removeBorrower")]
+    [HttpDelete("{id}/RemoveUserBorrower")]
     public ActionResult RemoveBorrower(int id, int borrowerUserId)
     {
       // todo make this action async
