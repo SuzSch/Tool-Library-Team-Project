@@ -13,11 +13,31 @@
 
 @using (Html.BeginForm())
 {
+  @Html.LabelFor(model => model.ToolName)
+  @Html.TextBoxFor(model => model.ToolName)<br>
   @Html.LabelFor(model => model.ToolDescription)
-  @Html.TextBoxFor(model => model.ToolDescription)
+  @Html.TextBoxFor(model => model.ToolDescription)<br>
+  //All tools are available upon creation by default
+  @Html.LabelFor(model => model.ToolStatus)
+  @Html.TextBoxFor(model => model.ToolStatus)
+
+  <h6>Please select a cateogry</h6>
+
+  <input type="radio" value="Arts and crafts" name="ToolCategory"/>
+  <label for="ToolCategory">Arts and crafts</label><br>
+
+  <input type="radio" value="Home improvement" name="ToolCategory"/>
+  <label for="ToolCategory">Home improvement</label><br>
+
+  <input type="radio" value="Recreation" name="ToolCategory"/>
+  <label for="ToolCategory">Recreation</label><br>
+
+  <input type="radio" value="Other" name="ToolCategory"/>
+  <label for="ToolCategory">Other</label><br>
+
   <br>
 
-  <input type="submit" value="Add tool type">
+  <input type="submit" value="Add tool">
 }
 <hr>
 <p>@Html.ActionLink("Back to Main Page", "Index", "Home")</p>

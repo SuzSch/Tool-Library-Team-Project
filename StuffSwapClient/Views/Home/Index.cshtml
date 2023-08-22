@@ -6,7 +6,8 @@
     <h1 class="display-4">Welcome to Stuff Swap!</h1>
 
     <p>click to see tools <a href="/tools">All tools</a></p>
-    <p>click to all users <a href="/users">All users</a></p>
+    <p>click to all users <a href="/appUsers">All users</a></p>
+    @Html.ActionLink("List all users", "Index", "AppUsers")
 </div>
 
-
+@Html.ActionLink("Test Details", "Details", "Tools", new{id = 2})
