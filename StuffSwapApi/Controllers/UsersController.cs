@@ -24,7 +24,7 @@ namespace StuffSwapApi.Controllers
             this.configuration = configuration;
         }
 
-        [HttpPost("GetToken")]
+        [HttpPost("/GetToken")]
         public IActionResult GetToken(User user)
         {
             IActionResult response = Unauthorized();
