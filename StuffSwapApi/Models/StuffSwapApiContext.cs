@@ -12,12 +12,12 @@ public class StuffSwapApiContext : DbContext
     //include seed data
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<Restaurant>()
+        builder.Entity<Tool>()
     .HasData(
       new Tool { ToolId = 1, ToolName = "Weedwacker", ToolDescription = "A good weedwacker", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example1.png", UserId = 1 },
       new Tool { ToolId = 2, ToolName = "Gardening Tools", ToolDescription = "Great gardening tools", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example2.png", UserId = 2 },
       new Tool { ToolId = 3, ToolName = "Rope for rock climbing", ToolDescription = "A good climbing rope", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example3.png", UserId = 3 },
-      new Tool { ToolId = 4, ToolName = "Sprinkler", ToolDescription = "Great Sprinkler", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example4.png", UserId = 1 },
+      new Tool { ToolId = 4, ToolName = "Sprinkler", ToolDescription = "Great Sprinkler", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example4.png", UserId = 1 }
     );
 
         builder.Entity<User>()
