@@ -13,7 +13,7 @@ namespace StuffSwapApi.Models
     public string ReturnDate { get; set; }
     public string ToolPhoto { get; set; }
     // the UserId below is the owner
-    public string UserId { get; set; }
+    public int UserId { get; set; }
 
     //todo should there be a join
   }
