@@ -110,6 +110,11 @@ namespace StuffSwapApi.Controllers
       if (joinToolUser == null && id != 0)
       {
         _db.ToolUsers.Add(new ToolUser() { UserId = user.UserId, ToolId = id });
+
+        //change status
+        Tool toolToUpdate = _db.Tools.FirstOrDefault(tool => tool.ToolId == id);
+        toolToUpdate.ToolStatus = "Unavailable";
+        // _db.Tools.Update(tool);
         _db.SaveChanges();
         return NoContent();
       }
@@ -131,6 +136,9 @@ namespace StuffSwapApi.Controllers
       if (joinToolUser != null)
       {
         _db.ToolUsers.Remove(joinToolUser);
+        //change status
+        Tool toolToUpdate = _db.Tools.FirstOrDefault(tool => tool.ToolId == id);
+        toolToUpdate.ToolStatus = "Available";
         _db.SaveChanges();
         return NoContent();
       }
