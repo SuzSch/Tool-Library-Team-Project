@@ -19,7 +19,10 @@
   @Html.TextBoxFor(model => model.ToolDescription)<br>
   //All tools are available upon creation by default
   @Html.LabelFor(model => model.ToolStatus)
-  @Html.TextBoxFor(model => model.ToolStatus)
+  @Html.TextBoxFor(model => model.ToolStatus)<br>
+
+  @Html.LabelFor(model => model.ToolPhoto)
+  @Html.TextBoxFor(model => model.ToolPhoto)
 
   <h6>Please select a cateogry</h6>
 
@@ -28,6 +31,7 @@
 
   <input type="radio" value="Home improvement" name="ToolCategory"/>
   <label for="ToolCategory">Home improvement</label><br>
+
 
   <input type="radio" value="Recreation" name="ToolCategory"/>
   <label for="ToolCategory">Recreation</label><br>

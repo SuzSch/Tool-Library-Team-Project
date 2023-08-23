@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "Tools";
     Layout = "_Layout";
+    
 }
 <style>
 @* .container {
@@ -35,6 +36,10 @@
   gap: .5rem;
   transition: transform .5s ease-in, opacity .3s ease-in;
   opacity: 0;
+}
+
+.card-hidden img {
+  display: none;
 }
 
 .card-border {
@@ -98,17 +103,19 @@
     @foreach(Tool tool in Model)
     {
         <div class="card">
-            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/09/28/Happy-peanut-character-Cartoon-smiling-Graphics-39452528-1.png" width="50" height="50">
+            <img src="@tool.ToolPhoto"/>
             <p class="title">@tool.ToolName</p>
             <div class="card-hidden">
                 <p class="title-in">@tool.ToolName</p>
+                @tool.ToolName
                 @tool.ToolDescription
                 @tool.ToolCategory
                 @tool.ToolStatus
                 @Html.ActionLink($"{tool.ToolName}", "Details", "AppUsers", new { id = tool.ToolId }, new { @class = "button" })
-            </div>
+            
         </div>
         <div class="card-border"></div>
+        </div>
     }
 </div>
 <p>@Html.ActionLink("Add a Tool", "Create")</p>
