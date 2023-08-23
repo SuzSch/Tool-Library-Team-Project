@@ -58,5 +58,27 @@ namespace StuffSwapClient.Models
         public static void Delete(int id, string model){
             ApiHelper.Delete(id, model);
         }
+
+        // public static async Task<string> LogIn(AppUser appUser)
+        // {
+        //     string jsonUser = JsonConvert.SerializeObject(appUser);
+        //     RestClient client = new RestClient("http://localhost:5000");
+        //     RestRequest request = new RestRequest($"getToken", Method.Post);
+        //     request.AddHeader("Content-Type", "application/json");
+        //     request.AddJsonBody(jsonUser);
+        //     RestResponse response = await client.PostAsync(request);
+            //    return response.Content;
+        // } 
+        
+        // public static async Task<string> Get(int id, string model)
+        // {
+        //     RestClient client = new RestClient("http://localhost:5000");
+        //     RestRequest request = new RestRequest($"api/{model}/{id}", Method.Get);
+        //     RestResponse response = await client.GetAsync(request);
+        //     return response.Content;
+        // }
+
+
+
     }
 }
