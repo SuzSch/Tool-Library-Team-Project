@@ -4,7 +4,7 @@ namespace StuffSwapApi.Models;
 
 public class StuffSwapApiContext : DbContext
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<AppUser> AppUsers { get; set; }
     public DbSet<Tool> Tools { get; set; }
     public DbSet<ToolUser> ToolUsers { get; set; }
 
@@ -22,11 +22,11 @@ public class StuffSwapApiContext : DbContext
         new Tool { ToolId = 4, ToolName = "Sprinkler", ToolDescription = "Great Sprinkler", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example4.png", UserId = 1 }
         );
 
-        builder.Entity<User>()
+        builder.Entity<AppUser>()
         .HasData(
-          new User { UserId = 1, UserName = "sampleUser@gmail.com", UserPassword = "samplePass" },
-          new User { UserId = 2, UserName = "taylor@gmail.com", UserPassword = "password" },
-          new User { UserId = 3, UserName = "coolguy@gmail.com", UserPassword = "password" }
+          new AppUser { AppUserId = 1, UserName = "sampleUser@gmail.com", UserPassword = "samplePass" },
+          new AppUser { AppUserId = 2, UserName = "taylor@gmail.com", UserPassword = "password" },
+          new AppUser { AppUserId = 3, UserName = "coolguy@gmail.com", UserPassword = "password" }
         );
     }
 }

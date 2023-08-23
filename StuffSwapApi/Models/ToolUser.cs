@@ -7,10 +7,10 @@ namespace StuffSwapApi.Models
   {
     public int ToolUserId { get; set; }
     // below UserId is for the borrower
-    public int UserId { get; set; }
+    public int AppUserId { get; set; }
     public int ToolId { get; set; }
     // User below is the borrower of the tool
-    public User User { get; set; }
+    public AppUser User { get; set; }
     public Tool Tool { get; set; }
 
   }

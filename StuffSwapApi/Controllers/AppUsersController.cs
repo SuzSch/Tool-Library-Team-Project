@@ -25,7 +25,7 @@ namespace StuffSwapApi.Controllers
         }
 
         [HttpPost("/GetToken")]
-        public IActionResult GetToken(User user)
+        public IActionResult GetToken(AppUser user)
         {
             IActionResult response = Unauthorized();
             if (user != null)

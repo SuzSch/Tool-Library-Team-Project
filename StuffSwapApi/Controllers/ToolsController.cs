@@ -97,7 +97,7 @@ namespace StuffSwapApi.Controllers
     }
 
     [HttpPost("{id}/AddUserBorrower")]
-    public async Task<ActionResult> AddBorrower(int id, User user)
+    public async Task<ActionResult> AddBorrower(int id, AppUser user)
     {
       // todo grab the user from the cookie
       // Note the id is the tool id and User is the borrowing UserId
@@ -108,7 +108,7 @@ namespace StuffSwapApi.Controllers
 #nullable disable
       if (joinToolUser == null && id != 0)
       {
-        await _db.ToolUsers.AddAsync(new ToolUser() { UserId = user.UserId, ToolId = id });
+        await _db.ToolUsers.AddAsync(new ToolUser() { AppUserId = user.AppUserId, ToolId = id });
 
         //change status
         Tool toolToUpdate = await _db.Tools.FirstOrDefaultAsync(tool => tool.ToolId == id);
@@ -130,7 +130,7 @@ namespace StuffSwapApi.Controllers
       // todo grab the user from the cookie
       // Note the id is the tool id and User is the borrowing UserId
 #nullable enable
-      ToolUser? joinToolUser = await _db.ToolUsers.FirstOrDefaultAsync(join => join.UserId == borrowerUserId && join.ToolId == id);
+      ToolUser? joinToolUser = await _db.ToolUsers.FirstOrDefaultAsync(join => join.AppUserId == borrowerUserId && join.ToolId == id);
 #nullable disable
       if (joinToolUser != null)
       {
