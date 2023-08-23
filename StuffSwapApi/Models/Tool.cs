@@ -9,7 +9,7 @@ namespace StuffSwapApi.Models
     public string ToolName { get; set; }
     public string ToolDescription { get; set; }
     public string ToolCategory { get; set; }
-    public string ToolStatus { get; set; }
+    public string ToolStatus { get; set; } = "Available";
     public string ReturnDate { get; set; }
     public string ToolPhoto { get; set; }
     // the UserId below is the owner
