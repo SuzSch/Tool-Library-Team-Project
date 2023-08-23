@@ -14,6 +14,7 @@
     grid gap: 10px;
     grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 20px;
+    
 }
 .card {
 
@@ -36,10 +37,11 @@
   gap: .5rem;
   transition: transform .5s ease-in, opacity .3s ease-in;
   opacity: 0;
+  
 }
 
-.card-hidden img {
-  display: none;
+img:hover {
+display:none
 }
 
 .card-border {
@@ -102,20 +104,24 @@
 <div class="card-container">
     @foreach(Tool tool in Model)
     {
+      <div class="container">
         <div class="card">
             <img src="@tool.ToolPhoto"/>
             <p class="title">@tool.ToolName</p>
             <div class="card-hidden">
                 <p class="title-in">@tool.ToolName</p>
+                      @Html.ActionLink("Details", "Details", "Tools", new { id = tool.ToolId }, new { @class = "button" })
                 @tool.ToolName
                 @tool.ToolDescription
                 @tool.ToolCategory
                 @tool.ToolStatus
-                @Html.ActionLink($"{tool.ToolName}", "Details", "AppUsers", new { id = tool.ToolId }, new { @class = "button" })
+
             
         </div>
         <div class="card-border"></div>
         </div>
+        </div>
     }
+    
 </div>
 <p>@Html.ActionLink("Add a Tool", "Create")</p>
