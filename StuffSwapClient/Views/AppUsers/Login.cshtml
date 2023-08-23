@@ -109,8 +109,11 @@
 <form class="form">
   <div class="title">Welcome,<br><span>Log-in to continue</span></div>
 
+    @Html.LabelFor(user => user.UserName)
     @Html.TextBoxFor(model => model.UserName,  new { @class = "input"})
+    @Html.LabelFor(user => user.UserEmail)
     @Html.TextBoxFor(model => model.UserEmail,  new { @class = "input"})
+    @Html.LabelFor(user => user.UserPassword)
     @Html.TextBoxFor(model => model.UserPassword,  new { @class = "input"})
 
   <div class="login-with">
