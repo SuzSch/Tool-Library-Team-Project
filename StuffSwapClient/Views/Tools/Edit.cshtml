@@ -5,7 +5,7 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this tool: @Html.DisplayFor(model => model.ToolDescription)</h4>
+<h4>Edit this tool: @Html.DisplayFor(model => model.ToolName)</h4>
 
 @if (!ViewData.ModelState.IsValid)
 {
@@ -15,7 +15,12 @@
 
 @using (Html.BeginForm())
 {
+
+  //should somehow be associated with the owner and ownerId
   @Html.HiddenFor(model => model.ToolId)
+
+  @Html.LabelFor(model => model.ToolName)
+  @Html.EditorFor(model => model.ToolName)
 
   @Html.LabelFor(model => model.ToolDescription)
   @Html.EditorFor(model => model.ToolDescription)
