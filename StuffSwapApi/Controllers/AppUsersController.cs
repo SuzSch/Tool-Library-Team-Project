@@ -12,13 +12,13 @@ namespace StuffSwapApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AppUsersController : ControllerBase
     {
         // private readonly StuffSwapApiContext _db;
         IConfiguration configuration;
 
         // todo  add StuffSwapApiContext db, 
-        public UsersController(IConfiguration configuration)
+        public AppUsersController(IConfiguration configuration)
         {
             // _db = db;
             this.configuration = configuration;
@@ -30,7 +30,7 @@ namespace StuffSwapApi.Controllers
             IActionResult response = Unauthorized();
             if (user != null)
             {
-                if (user.UserName.Equals("sampleUser@gmail.com") && user.Password.Equals("samplePass"))
+                if (user.UserName.Equals("sampleUser@gmail.com") && user.UserPassword.Equals("samplePass"))
                 {
                     var issuer = configuration["Jwt:Issuer"];
                     var audience = configuration["Jwt:Audience"];

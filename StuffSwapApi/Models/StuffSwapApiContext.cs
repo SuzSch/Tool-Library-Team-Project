@@ -24,9 +24,9 @@ public class StuffSwapApiContext : DbContext
 
         builder.Entity<User>()
         .HasData(
-          new User { UserId = 1, UserName = "sampleUser@gmail.com", Password = "samplePass" },
-          new User { UserId = 2, UserName = "taylor@gmail.com", Password = "password" },
-          new User { UserId = 3, UserName = "coolguy@gmail.com", Password = "password" }
+          new User { UserId = 1, UserName = "sampleUser@gmail.com", UserPassword = "samplePass" },
+          new User { UserId = 2, UserName = "taylor@gmail.com", UserPassword = "password" },
+          new User { UserId = 3, UserName = "coolguy@gmail.com", UserPassword = "password" }
         );
     }
 }
