@@ -19,15 +19,15 @@ namespace StuffSwapClient.Controllers
             return View();
         } 
 
-        // [HttpPost]
-        // public ActionResult Login(AppUser appUser)
-        // {
+        [HttpPost]
+        public ActionResult Login(AppUser appUser)
+        {
             // string token = AppUser.Login(appUser);
-            // HttpContext.Response.Cookies.Append("jwt", "123");
+            HttpContext.Response.Cookies.Append("jwt", "123");
             // var tokenCookie = new HttpCookie("tokenCookie");
             // tokenCookie["jwt"] = "123";
-        //     return RedirectToAction("Login");
-        // }
+            return RedirectToAction("Login");
+        }
  
         public IActionResult Details(int id)
         {
