@@ -3,18 +3,23 @@
 }
 @model StuffSwapClient.Models.Tool;
 
-<h1> @Model.ToolName</h1>
+<img src="@Model.ToolPhoto">
+<div class="details-box">
 
-@* Associate with user Id. 
-Include tool owner name (UserName)
-<p>Owner name: </p> *@
-@* <p>@Model.ToolPhoto</p> *@
 <p>Category: @Model.ToolCategory</p>
 <p>Description: @Model.ToolDescription</p>
 <p>Status: @Model.ToolStatus</p>
 <p>Due Date: @Model.ReturnDate</p>
+</div>
 
+<div class="button-confirm"
+@Html.DisplayNameFor(tool => tool.ToolName): @Html.DisplayFor(tool => tool.ToolName)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Edit" />
+}
+</div>
 
-<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.ToolId })</p>
 <p>@Html.ActionLink("Delete this tool", "Delete", new { id = @Model.ToolId })</p>
 <p>@Html.ActionLink("Return to all tools", "Index")</p>
+
