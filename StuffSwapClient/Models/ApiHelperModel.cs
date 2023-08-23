@@ -28,11 +28,11 @@ namespace StuffSwapClient.Models{
             await client.PostAsync(request);
         }
 
-        public static async void Put(int id, string newTool, string model){
+        public static async void Put(int id, string selectedTool, string model){
             RestClient client = new RestClient("http://localhost:5000/");
             RestRequest request = new RestRequest($"api/{model}/{id}", Method.Put);
             request.AddHeader("Content-Type", "application/json");
-            request.AddJsonBody(newTool);
+            request.AddJsonBody(selectedTool);
             await client.PutAsync(request);
         }
 

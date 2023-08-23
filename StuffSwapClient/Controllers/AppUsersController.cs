@@ -7,7 +7,7 @@ namespace StuffSwapClient.Controllers
 {
     public class AppUsersController : Controller{
         public IActionResult Index(){
-            List<AppUser> appUsers = AppUser.GetUsers("appUsers");
+            List<AppUser> appUsers = AppUser.GetUsers("Users");
             return View(appUsers);
         }
         public ActionResult Login(){

@@ -3,7 +3,7 @@
 }
 
 @using StuffSwapClient.Models
-@model AppUser
+@model StuffSwapClient.Models.AppUser;
 
 <style>
 .form {
@@ -110,8 +110,8 @@
   <div class="title">Welcome,<br><span>Log-in to continue</span></div>
 
     @Html.TextBoxFor(model => model.UserName,  new { @class = "input"})
-    @Html.TextBoxFor(model => model.Email,  new { @class = "input"})
-    @Html.TextBoxFor(model => model.Password,  new { @class = "input"})
+    @Html.TextBoxFor(model => model.UserEmail,  new { @class = "input"})
+    @Html.TextBoxFor(model => model.UserPassword,  new { @class = "input"})
 
   <div class="login-with">
     <div class="button-log"></div>
