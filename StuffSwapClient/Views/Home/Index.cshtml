@@ -11,10 +11,10 @@
 
 
     
-    @* <p>click to see tools <a href="/tools">All tools</a></p>
-    <p>click to all users <a href="/users">All users</a></p> *@
-
+<p>click to see tools <a href="/tools">All tools</a></p>
+<p>@Html.ActionLink("Go to users", "Index", "AppUsers", null)</p>
 
 </div>
 
 @Html.ActionLink("Test Details", "Details", "Tools", new{id = 2})
+@Html.ActionLink("Tools", "Index", "Tools")

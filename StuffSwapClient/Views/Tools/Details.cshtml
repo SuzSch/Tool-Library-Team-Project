@@ -3,9 +3,12 @@
 }
 @model StuffSwapClient.Models.Tool;
 
-<h1>This tool: @Model.ToolName</h1>
+<h1> @Model.ToolName</h1>
 
-<p>@Model.ToolPhoto</p>
+@* Associate with user Id. 
+Include tool owner name (UserName)
+<p>Owner name: </p> *@
+@* <p>@Model.ToolPhoto</p> *@
 <p>Category: @Model.ToolCategory</p>
 <p>Description: @Model.ToolDescription</p>
 <p>Status: @Model.ToolStatus</p>

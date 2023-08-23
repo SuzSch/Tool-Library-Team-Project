@@ -13,7 +13,7 @@ namespace StuffSwapClient.Models
         public string ToolDescription { get; set; }
         public string ToolCategory { get; set; }
         public string ToolStatus { get; set; }
-        public int UserId { get; set; }
+        public int AppUserId { get; set; }
         public AppUser appUser { get; set; }
         public string ToolPhoto { get; set;}
         // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=false)]
