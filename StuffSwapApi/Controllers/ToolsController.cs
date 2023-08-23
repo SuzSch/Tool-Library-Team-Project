@@ -56,7 +56,8 @@ namespace StuffSwapApi.Controllers
         return BadRequest();
       }
       // the async part is not the update but the save
-      _db.Tools.Update(tool);
+       _db.Tools.Update(tool);
+      
 
       try
       {

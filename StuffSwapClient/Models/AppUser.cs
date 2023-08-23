@@ -10,7 +10,7 @@ namespace StuffSwapClient.Models
 {
     public class AppUser
     {
-        public int UserId { get; set; }
+        public int AppUserId { get; set; }
         [Required]
         [Display(Name="User Name")]
         public string UserName { get; set; }
@@ -52,7 +52,7 @@ namespace StuffSwapClient.Models
 
         public static void Put(AppUser appUser, string model){
             string jsonUser = JsonConvert.SerializeObject(appUser);
-            ApiHelper.Put(appUser.UserId, jsonUser, model);
+            ApiHelper.Put(appUser.AppUserId, jsonUser, model);
         }
 
         public static void Delete(int id, string model){

@@ -7,7 +7,7 @@ namespace StuffSwapClient.Controllers
 {
     public class AppUsersController : Controller{
         public IActionResult Index(){
-            List<AppUser> appUsers = AppUser.GetUsers("Users");
+            List<AppUser> appUsers = AppUser.GetUsers("appUsers");
             return View(appUsers);
         }
         public ActionResult Login(){
@@ -43,7 +43,7 @@ namespace StuffSwapClient.Controllers
         public ActionResult Edit(AppUser appUser)
         {
             AppUser.Put(appUser, "appUsers");
-            return RedirectToAction("Details", new { id = appUser.UserId });
+            return RedirectToAction("Details", new { id = appUser.AppUserId });
         }
 
         public ActionResult Delete(int id)

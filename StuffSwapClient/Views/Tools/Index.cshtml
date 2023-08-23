@@ -4,13 +4,14 @@
 
  @using StuffSwapClient.Models;
  <h1>All tools registered</h1>
-<ol>
+
 @foreach(Tool tool in Model)
 {   
     <ul>
         <li>@Html.ActionLink($"{tool.ToolName}","Details", new { id = tool.ToolId} ) </li>
     </ul>
 }
-</ol> 
 
+@* Link will be moved to user profile page once we have that running. users shouldn't be able to create a tool otherwise (unless logged in) *@
 <p>@Html.ActionLink("Add a Tool", "Create")</p>
+

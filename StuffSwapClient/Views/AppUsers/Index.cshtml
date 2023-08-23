@@ -18,7 +18,7 @@
     
       @foreach (AppUser appUser in ViewBag.AppUsers)
       {
-      <p>@Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.UserId }, null)</p>
+      <p>@Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.AppUserId }, null)</p>
       }
     
   }
