@@ -22,10 +22,10 @@ namespace StuffSwapClient.Controllers
         [HttpPost]
         public ActionResult Login(AppUser appUser)
         {
-            // string token = AppUser.Login(appUser);
-            HttpContext.Response.Cookies.Append("jwt", "123");
-            // var tokenCookie = new HttpCookie("tokenCookie");
-            // tokenCookie["jwt"] = "123";
+            string token = AppUser.LogIn(appUser);
+            //Need to clean up "" showing up with token. Why are they showing up?
+            string cleanedToken = token.Replace("\"", "");
+            HttpContext.Response.Cookies.Append("jwt", cleanedToken);
             return RedirectToAction("Login");
         }
  

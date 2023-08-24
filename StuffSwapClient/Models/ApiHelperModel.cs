@@ -42,5 +42,15 @@ namespace StuffSwapClient.Models{
             request.AddHeader("Content-Type", "application/json");
             await client.DeleteAsync(request);
         }
+
+         public static async Task<string> LogIn(string jsonUser)
+        {
+            RestClient client = new RestClient("http://localhost:5000");
+            RestRequest request = new RestRequest($"getToken", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(jsonUser);
+            RestResponse response = await client.PostAsync(request);
+            return response.Content;
+        }
     }
 }   
