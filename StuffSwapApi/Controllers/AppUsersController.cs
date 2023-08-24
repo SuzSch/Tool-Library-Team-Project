@@ -14,13 +14,13 @@ namespace StuffSwapApi.Controllers
     [ApiController]
     public class AppUsersController : ControllerBase
     {
-        // private readonly StuffSwapApiContext _db;
+        private readonly StuffSwapApiContext _db;
         IConfiguration configuration;
 
         // todo  add StuffSwapApiContext db, 
-        public AppUsersController(IConfiguration configuration)
+        public AppUsersController(StuffSwapApiContext db, IConfiguration configuration)
         {
-            // _db = db;
+            _db = db;
             this.configuration = configuration;
         }
 
@@ -68,6 +68,17 @@ namespace StuffSwapApi.Controllers
             }
 
             return response;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AppUser>> GetAppUser(int id)
+        {
+        AppUser appUser= await _db.AppUsers.FindAsync(id);
+        if (appUser == null)
+        {
+            return NotFound();
+        }
+        return appUser;
         }
 
 
