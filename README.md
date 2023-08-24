@@ -4,7 +4,7 @@
 
 #### Features
 
-- User egistration: Users can register for an account and complete a profile.
+- User registration: Users can register for an account and complete a profile.
 - Tool listing: Users can list tools they have available to lend to other community members.
 - Tool borrowing: Users can seamlessly select and borrow items.
 
