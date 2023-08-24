@@ -111,7 +111,7 @@
     @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:")
 }
 
-<form class="form">
+<form class="form" method="post" action="register">
   <div class="title">Welcome,<br><span>sign up to continue</span></div>
 
     @Html.TextBoxFor(user => user.UserName, new { @class = "input"})

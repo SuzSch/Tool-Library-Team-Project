@@ -12,14 +12,8 @@
 <p>Due Date: @Model.ReturnDate</p>
 </div>
 
-<div class="button-confirm"
-@Html.DisplayNameFor(tool => tool.ToolName): @Html.DisplayFor(tool => tool.ToolName)
-@using (Html.BeginForm())
-{
-  <input type="submit" value="Edit" />
-}
-</div>
 
+<a href="/tools/edit/@Model.ToolId"><button>Edit</button></a>
 <p>@Html.ActionLink("Delete this tool", "Delete", new { id = @Model.ToolId })</p>
 <p>@Html.ActionLink("Return to all tools", "Index")</p>
 
