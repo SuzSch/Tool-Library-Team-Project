@@ -45,7 +45,7 @@ namespace StuffSwapClient.Controllers
         public ActionResult Register(AppUser appUser)
         {
             AppUser.Post(appUser, "appUsers");
-            return RedirectToAction("Index");
+            return RedirectToAction("Login");
         }
 
         public ActionResult Edit(int id)
