@@ -14,15 +14,23 @@ namespace StuffSwapApi.Controllers
     [ApiController]
     public class AppUsersController : ControllerBase
     {
-        // private readonly StuffSwapApiContext _db;
+        private readonly StuffSwapApiContext _db;
         IConfiguration configuration;
 
-        // todo  add StuffSwapApiContext db, 
-        public AppUsersController(IConfiguration configuration)
+        public AppUsersController(IConfiguration configuration, StuffSwapApiContext db)
         {
-            // _db = db;
+            _db = db;
             this.configuration = configuration;
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Post(AppUser appUser)
+        {
+            await _db.AppUsers.AddAsync(appUser);
+            await _db.SaveChangesAsync();
+            return NoContent();
+        }
+
 
         [HttpPost("/GetToken")]
         public IActionResult GetToken(AppUser user)
