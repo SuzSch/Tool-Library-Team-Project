@@ -36,9 +36,14 @@ namespace StuffSwapApi.Controllers
         public IActionResult GetToken(AppUser user)
         {
             IActionResult response = Unauthorized();
+
             if (user != null)
             {
-                if (user.UserName.Equals("sampleUser@gmail.com") && user.UserPassword.Equals("samplePass"))
+#nullable enable
+            AppUser? appUserExists = _db.AppUsers.FirstOrDefault(entry => entry.UserName == user.UserName && entry.UserPassword == user.UserPassword);
+#nullable disable
+                if (appUserExists != null)
+                // if (user.UserName.Equals("sampleUser@gmail.com") && user.UserPassword.Equals("samplePass"))
                 {
                     var issuer = configuration["Jwt:Issuer"];
                     var audience = configuration["Jwt:Audience"];
@@ -52,6 +57,7 @@ namespace StuffSwapApi.Controllers
                     {
                         //user Id claim: needs to find out what AppUserId is with a query of the database somewhere above this branching logic
                         // new Claim("AppUserId", user.AppUserId.ToString()),
+                        new Claim("AppUserId", appUserExists.AppUserId.ToString()),
                         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                         new Claim(JwtRegisteredClaimNames.Email, user.UserName),
                     }
