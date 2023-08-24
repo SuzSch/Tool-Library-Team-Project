@@ -42,8 +42,8 @@ namespace StuffSwapApi.Controllers
 
                     var subject = new ClaimsIdentity(new[]
                     {
-                        //user Id claim needed to seperate users
-                        //new Claim(user.UserId)
+                        //user Id claim: needs to find out what AppUserId is with a query of the database somewhere above this branching logic
+                        // new Claim("AppUserId", user.AppUserId.ToString()),
                         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                         new Claim(JwtRegisteredClaimNames.Email, user.UserName),
                     }
