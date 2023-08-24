@@ -1,10 +1,12 @@
 # Stuff Swap: A Tool Library
 
 **Description:** A sharing community right here in Portland, Oregon! Stuff Swap is web application for a tool, equipment, and hobby supply sharing for individuals in Portland, OR and surrounding areas. It has no physical warehouse and doesn't need to be staffed, making it accessible to anyone at any time.
-**Features** 
-    - **User egistration:** Users can register for an account and complete a profile. 
-    - **Tool listing:** Users can list tools they have available to lend to other community members. 
-    - **Tool borrowing:** Users can seamlessly select and borrow items.
+
+#### Features
+
+- User egistration: Users can register for an account and complete a profile.
+- Tool listing: Users can list tools they have available to lend to other community members.
+- Tool borrowing: Users can seamlessly select and borrow items.
 
 ## Technologies used
 
