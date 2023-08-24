@@ -5,10 +5,11 @@
 @model StuffSwapClient.Models.Tool
 
 <h1>Delete Tool</h1>
-<p>Are you sure you want to delete the following treat?</p>
+<p>Are you sure you want to delete the following tool?</p>
 <div>
-  <h4>Tool details:</h4>
+  <h4>Tool details</h4>
   <div>
+    <h5>Name: @Html.DisplayFor(model => model.ToolName)</h5>
     <h5>Description: @Html.DisplayFor(model => model.ToolDescription)</h5>
   </div>
   <form asp-action="Delete" asp-route-id="@Model.ToolId" method="post">

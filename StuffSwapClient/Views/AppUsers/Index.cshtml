@@ -115,7 +115,7 @@
                 <li>@appUser.UserEmail
                 <li>@appUser.Address 
               </ol>
-              @Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.UserId }, new { @class = "button"})
+              @Html.ActionLink($"{appUser.UserName}", "Details", "AppUsers", new { id = appUser.AppUserId }, new { @class = "button"})
           </div>
 
       </div>

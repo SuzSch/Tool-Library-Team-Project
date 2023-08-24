@@ -29,7 +29,7 @@ namespace StuffSwapClient.Models{
         }
 
         public static async void Put(int id, string selectedTool, string model){
-            RestClient client = new RestClient("http://localhost:5000/");
+            RestClient client = new RestClient("https://localhost:5001/");
             RestRequest request = new RestRequest($"api/{model}/{id}", Method.Put);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(selectedTool);
@@ -41,6 +41,16 @@ namespace StuffSwapClient.Models{
             RestRequest request = new RestRequest($"api/{model}/{id}", Method.Delete);
             request.AddHeader("Content-Type", "application/json");
             await client.DeleteAsync(request);
+        }
+
+         public static async Task<string> LogIn(string jsonUser)
+        {
+            RestClient client = new RestClient("http://localhost:5000");
+            RestRequest request = new RestRequest($"getToken", Method.Post);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(jsonUser);
+            RestResponse response = await client.PostAsync(request);
+            return response.Content;
         }
     }
 }   

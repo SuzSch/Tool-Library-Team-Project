@@ -12,25 +12,25 @@ namespace StuffSwapApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AppUsersController : ControllerBase
     {
         // private readonly StuffSwapApiContext _db;
         IConfiguration configuration;
 
         // todo  add StuffSwapApiContext db, 
-        public UsersController(IConfiguration configuration)
+        public AppUsersController(IConfiguration configuration)
         {
             // _db = db;
             this.configuration = configuration;
         }
 
         [HttpPost("/GetToken")]
-        public IActionResult GetToken(User user)
+        public IActionResult GetToken(AppUser user)
         {
             IActionResult response = Unauthorized();
             if (user != null)
             {
-                if (user.UserName.Equals("sampleUser@gmail.com") && user.Password.Equals("samplePass"))
+                if (user.UserName.Equals("sampleUser@gmail.com") && user.UserPassword.Equals("samplePass"))
                 {
                     var issuer = configuration["Jwt:Issuer"];
                     var audience = configuration["Jwt:Audience"];
@@ -42,8 +42,8 @@ namespace StuffSwapApi.Controllers
 
                     var subject = new ClaimsIdentity(new[]
                     {
-                        //user Id claim needed to seperate users
-                        //new Claim(user.UserId)
+                        //user Id claim: needs to find out what AppUserId is with a query of the database somewhere above this branching logic
+                        // new Claim("AppUserId", user.AppUserId.ToString()),
                         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                         new Claim(JwtRegisteredClaimNames.Email, user.UserName),
                     }
