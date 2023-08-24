@@ -9,12 +9,16 @@ namespace StuffSwapClient.Models
 {
     public class Tool{
         public int ToolId { get; set; }
+        [Display(Name="Tool Name")]
         public string ToolName { get; set;  }
+        [Display(Name="Description")]
         public string ToolDescription { get; set; }
         public string ToolCategory { get; set; }
+        [Display(Name="Status", Prompt = "Available/Unavailable")]
         public string ToolStatus { get; set; }
         public int AppUserId { get; set; }
         public AppUser appUser { get; set; }
+        [Display(Name="Add a photo", Prompt="image URL")]
         public string ToolPhoto { get; set;}
         // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=false)]
         public string ReturnDate { get; set;}

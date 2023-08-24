@@ -14,7 +14,24 @@ html {
 body {
   margin-bottom: 60px;
   font-family: 'Kodchasan';
+  background-color: rgb(238, 227, 218);
 }
+
+img {
+
+border-width: 20px;
+border-style: double;
+border-radius: 5px;
+border-color: rgb(206, 164, 122);
+}
+
+.index-img {
+
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgb(206, 164, 122);
+  }
 
 
 
