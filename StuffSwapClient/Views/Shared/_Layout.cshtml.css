@@ -5,10 +5,12 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  background-color: rgb(238, 209, 153);
 }
 
+
 a {
-  color: #0077cc;
+  color: rgba(131, 56, 10, 0.504);
 }
 
 .btn-primary {
