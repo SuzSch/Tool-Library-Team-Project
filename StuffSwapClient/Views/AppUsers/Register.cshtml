@@ -12,7 +12,7 @@
   --bg-color: #fff;
   --main-color: #323232;
   padding: 20px;
-  background: lightgrey;
+  background: rgb(206, 164, 122);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -116,9 +116,7 @@
 
     @Html.TextBoxFor(user => user.UserName, new { @class = "input"})
     @Html.LabelFor(user => user.UserName)
-    @Html.TextBoxFor(user => user.UserEmail, new { @class = "input"})
-    @Html.LabelFor(user => user.UserEmail)
-    @Html.TextBoxFor(user => user.UserPassword, new { @class = "input"})
+    @Html.PasswordFor(user => user.UserPassword, new { @class = "input"})
     @Html.LabelFor(user => user.UserPassword)
     
   <div class="login-with">

@@ -1,8 +1,70 @@
 @{
   ViewData["Title"] = $"Details for {@Model.ToolName}";
 }
+<style>
+
+.form {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fffffffff;
+  --main-color: rgba(65, 23, 23, 0.418);
+  padding: 20px;
+  background:rgb(212, 187, 164);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.form img{
+  width: 450px;
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+
+
+.button-log {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: var(--font-color);
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.button-log:active, .button-confirm:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+</style>
 @model StuffSwapClient.Models.Tool;
 
+<div class="form">
 <img src="@Model.ToolPhoto">
 <div class="details-box">
 
@@ -12,9 +74,13 @@
 <p>Owner: @ViewBag.UserName</p>
 <p>Due Date: @Model.ReturnDate</p>
 </div>
-
-
+</div>
+<br>
 <a href="/tools/edit/@Model.ToolId"><button>Edit</button></a>
-<p>@Html.ActionLink("Delete this tool", "Delete", new { id = @Model.ToolId })</p>
-<p>@Html.ActionLink("Return to all tools", "Index")</p>
+<br>
+<a href="/tools/delete/@Model.ToolId"><button>Delete</button></a>
+<br>
+<a href="/tools/index/@Model.ToolId"><button>See all tools</button></a>
+
+
 
