@@ -23,6 +23,8 @@ public class ToolsController : Controller
     public IActionResult Details(int id)
     {
         Tool tool = Tool.GetDetails(id, "tools");
+        AppUser owner = AppUser.GetDetails(tool.AppUserId, "appUsers");
+        ViewBag.UserName = owner.UserName;
         return View(tool);
     }
 

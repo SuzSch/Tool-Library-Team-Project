@@ -16,10 +16,10 @@ public class StuffSwapApiContext : DbContext
 
         builder.Entity<Tool>()
         .HasData(
-        new Tool { ToolId = 1, ToolName = "Weedwacker", ToolDescription = "A good weedwacker", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://sgp1.digitaloceanspaces.com/fluxdigi/yourhousegarden/uploads/FI-best-weed-eater.jpg", UserId = 1 },
-        new Tool { ToolId = 2, ToolName = "Roller Skates", ToolDescription = "Used Size 7 Rollerskates", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://s3-media0.fl.yelpcdn.com/bphoto/PBU2rkgpvKUrTVQyug0mfw/o.jpg", UserId = 2 },
-        new Tool { ToolId = 3, ToolName = "Rope for rock climbing", ToolDescription = "A good climbing rope, only taken a few falls", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example3.png", UserId = 3 },
-        new Tool { ToolId = 4, ToolName = "Kitchen Mixer", ToolDescription = "Kitchen Mixer with all attachemnts", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://i.ebayimg.com/images/g/vZ4AAOSwSm5f90tw/s-l500.jpg", UserId = 1 }
+        new Tool { ToolId = 1, ToolName = "Weedwacker", ToolDescription = "A good weedwacker", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://sgp1.digitaloceanspaces.com/fluxdigi/yourhousegarden/uploads/FI-best-weed-eater.jpg", AppUserId = 1 },
+        new Tool { ToolId = 2, ToolName = "Roller Skates", ToolDescription = "Used Size 7 Rollerskates", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://s3-media0.fl.yelpcdn.com/bphoto/PBU2rkgpvKUrTVQyug0mfw/o.jpg", AppUserId = 2 },
+        new Tool { ToolId = 3, ToolName = "Rope for rock climbing", ToolDescription = "A good climbing rope, only taken a few falls", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "www.photo.com/example3.png", AppUserId = 3 },
+        new Tool { ToolId = 4, ToolName = "Kitchen Mixer", ToolDescription = "Kitchen Mixer with all attachemnts", ToolStatus = "Available", ReturnDate = "None", ToolPhoto = "https://i.ebayimg.com/images/g/vZ4AAOSwSm5f90tw/s-l500.jpg", AppUserId = 1 }
         );
 
         builder.Entity<AppUser>()
